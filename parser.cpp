@@ -2,7 +2,7 @@
 
 #include <QFile>
 #include <QTextStream>
-#include <QtDebug>
+#include <QDebug>
 #include <QCoreApplication>
 
 

@@ -1,5 +1,5 @@
 import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.2
 import Qt.labs.platform 1.0
 
 //основной экран (Информация и ввод)
