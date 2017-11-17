@@ -24,7 +24,7 @@ public slots:
     void on_endProcessing();            //Слот завершения работы парсера
     void on_countLine(int);             //Слот колиичество найденных строк
     void on_countUniqueWords(int);      //Количество кникальных слов
-
+    void on_errorOpenFile();            //Слот ошибка чтения файла
 private:
     Backend * backend;
     Parser * p_parser;

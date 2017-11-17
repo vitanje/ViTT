@@ -38,6 +38,7 @@ void Parser::on_readFile(QUrl filePath)
     if (!file.open(QFile::ReadOnly | QFile::Text))
     {
         qDebug() << "file not open:" << filePath;
+        emit errorOpenFile();
     } else {
         QTextStream in(&file);
         while(!in.atEnd() && b_readFile) //флаг остановки цикла

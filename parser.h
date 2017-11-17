@@ -15,6 +15,7 @@ signals:
     void endProcessing();               //Завершения работы парсера
     void countLine(int count);          //Колиичество найденных строк
     void countUniqueWords(int count);   //Количество кникальных слов
+    void errorOpenFile();               //Ошибка чтения файла
 
 public slots:    
     void on_readFile(QUrl filePath);    //Путь к файлу

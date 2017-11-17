@@ -36,6 +36,7 @@ void Backend::init()
     QObject::connect(p_parser, &Parser::endProcessing, backend, &Backend::on_endProcessing);
     QObject::connect(p_parser, &Parser::countLine, backend, &Backend::on_countLine);
     QObject::connect(p_parser, &Parser::countUniqueWords, backend, &Backend::on_countUniqueWords);
+    QObject::connect(p_parser, &Parser::errorOpenFile, backend, &Backend::on_errorOpenFile);
 
     p_parser->moveToThread(p_thread);
     p_thread->start();
@@ -69,5 +70,11 @@ void Backend::on_countLine(int countLine)
 void Backend::on_countUniqueWords(int countUniqueWords)
 {    
     mainWindow->setProperty("countUniqueWords", countUniqueWords);
+}
+
+//Слот ошибка чтения файла
+void Backend::on_errorOpenFile()
+{
+    QMetaObject::invokeMethod(mainWindow, "errorOpenFile");
 }
 
