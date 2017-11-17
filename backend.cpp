@@ -3,7 +3,7 @@
 #include <QtDebug>
 #include <QtCore/QThread>
 
-//основной
+//основной класс
 
 Backend::Backend(QObject *parent) :
     QObject(parent), backend(this)
@@ -21,7 +21,7 @@ Backend::Backend(QObject *parent) :
     p_engine->rootContext()->setContextProperty("backend", this);
 }
 
-//Инициализация дополнительного потока и обработчика файлов (parser).
+//Инициализация дополнительного потока и обработчика файлов (Parser).
 void Backend::init()
 {
     QThread * p_thread = new QThread();

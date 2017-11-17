@@ -22,8 +22,8 @@ public slots:
     void on_readFile(QUrl filePath);    //Путь к файлу
     void on_startReadFile(bool on_off); //Пуск/стоп алгоритма чтения+обработки файла
     void on_endProcessing();            //Слот завершения работы парсера
-    void on_countLine(int);             //Слот колиичество найденных строк
-    void on_countUniqueWords(int);      //Количество кникальных слов
+    void on_countLine(int);             //Слот: колиичество найденных строк
+    void on_countUniqueWords(int);      //Слот: Количество кникальных слов
     void on_errorOpenFile();            //Слот ошибка чтения файла
 private:
     Backend * backend;

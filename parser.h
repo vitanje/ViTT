@@ -12,9 +12,9 @@ public:
     explicit Parser();
     void parser(QString line);
 signals:
-    void endProcessing();               //Завершения работы парсера
-    void countLine(int count);          //Колиичество найденных строк
-    void countUniqueWords(int count);   //Количество кникальных слов
+    void endProcessing();               //Завершение работы парсера
+    void countLine(int count);          //Количество найденных строк
+    void countUniqueWords(int count);   //Количество уникальных слов
     void errorOpenFile();               //Ошибка чтения файла
 
 public slots:    
