@@ -78,7 +78,7 @@ Item {
             }
 
             contentItem: Text {
-                text: qsTr(buttonViewFile.text)
+                text: buttonViewFile.text
                 font: buttonViewFile.font
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter

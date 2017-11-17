@@ -21,7 +21,7 @@ Item {
         Button {
             id: buttonBack
             width: 100
-            text: "< Назад"
+            text: qsTr("< Назад")
             highlighted: true
             font.pointSize: 10
             font.family: "Verdana"            
@@ -33,7 +33,7 @@ Item {
             }
 
             contentItem: Text {
-                text: qsTr(buttonBack.text)
+                text: buttonBack.text
                 font: buttonBack.font
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -71,7 +71,7 @@ Item {
             }
 
             contentItem: Text {
-                text: qsTr(buttonProcess.text)
+                text: buttonProcess.text
                 font: buttonProcess.font
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -107,7 +107,7 @@ Item {
             }
 
             contentItem: Text {
-                text: qsTr(buttonExit.text)
+                text: buttonExit.text
                 font: buttonExit.font
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
