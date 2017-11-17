@@ -144,6 +144,7 @@ ApplicationWindow {
         primaryView.textProcessMessage.text = "Завершено!"
     }
 
+    //Ошибка чтения файла
     function errorOpenFile() {
         primaryView.textProcessMessage.text = "Ошибка чтения файла!"
     }
