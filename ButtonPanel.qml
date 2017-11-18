@@ -1,13 +1,13 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.2
 
-//Панель основных кнопок ("Назад", "Обработать", "Выход")
+// Панель основных кнопок ("Назад", "Обработать", "Выход")
 
 Item {
 
-    property alias buttonBack: buttonBack       //Кнопка Назад
-    property alias buttonProcess: buttonProcess //Кнопка Обработать
-    property alias buttonExit: buttonExit       //Кнопка Выход
+    property alias buttonBack: buttonBack       // Кнопка Назад
+    property alias buttonProcess: buttonProcess // Кнопка Обработать
+    property alias buttonExit: buttonExit       // Кнопка Выход
 
     width: 500
     height: 50
@@ -23,7 +23,7 @@ Item {
             text: qsTr("< Назад")
             highlighted: true
             font.pointSize: 10
-            font.family: "Verdana"            
+            font.family: "Verdana"
 
             anchors {
                 right: buttonProcess.left

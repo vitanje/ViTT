@@ -3,24 +3,24 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
-#include <QCoreApplication>
+#include <QCoreApplication>     // Для QCoreApplication::processEvents();
 
 
-//файловый парсер считывающий построчно текстовый файл
+// файловый парсер считывающий построчно текстовый файл
 
 Parser::Parser()
 {    
-    bookWords =  new QSet<QString>; //инициализация словаря слов
+    bookWords =  new QSet<QString>; // Инициализация словаря слов
 }
 
-//Фильтр и наполнение словаря уникальными словами
+// Фильтр и наполнение словаря уникальными словами
 inline void Parser::parser(QString line)
 {    
     QString str = line.remove(QRegExp("[?!.;,:]"));
-    QStringList s_list = str.split(" ", QString::SkipEmptyParts);
+    QStringList list = str.split(" ", QString::SkipEmptyParts);
 
-    //Алгоритм определения уникальности слова
-    foreach(QString word, s_list) {
+    // Алгоритм определения уникальности слова
+    foreach(QString word, list) {
         if(!bookWords->contains(word)) {            
             bookWords->insert(word);
             emit countUniqueWords(bookWords->count());
@@ -28,11 +28,11 @@ inline void Parser::parser(QString line)
     }
 }
 
-//Слот (от Backend) установка пути файла для чтения
+// Слот (от Backend) установка пути файла для чтения
 void Parser::on_readFile(QUrl filePath)
 {    
     bookWords->clear();
-    int _countLine = 0; //количество строк (найденых)
+    int _countLine = 0; // Количество строк (найденых)
 
     QFile file(filePath.toLocalFile());    
     if (!file.open(QFile::ReadOnly | QFile::Text))
@@ -41,14 +41,14 @@ void Parser::on_readFile(QUrl filePath)
         emit errorOpenFile();
     } else {
         QTextStream in(&file);
-        while(!in.atEnd() && b_readFile) //флаг остановки цикла
+        while(!in.atEnd() && b_readFile) // Флаг остановки цикла
         {                        
             parser(in.readLine());
             emit countLine(++_countLine);
-            QCoreApplication::processEvents();//Проверка очереди EventLoop
+            QCoreApplication::processEvents();// Проверка очереди EventLoop
         }        
 
-        //Щтатное завершение работы чтения файла.
+        // Штатное завершение работы чтения файла.
         if(b_readFile) {
             emit endProcessing();
         }
@@ -56,7 +56,7 @@ void Parser::on_readFile(QUrl filePath)
     }
 }
 
-//Слот флага остановки чтения файла
+// Слот флага остановки чтения файла
 void Parser::on_startReadFile(bool on_off)
 {        
     b_readFile = on_off; 

@@ -1,19 +1,20 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.2
 
+// Интерфейс
 
 ApplicationWindow {
 
-    property string filePath: ""                //путь+имя файла
-    property int countLine: 0                   //количество строк (найденых)
-    property int countUniqueWords: 0            //количество уникальных найденных слов
+    property string filePath: ""                // путь+имя файла
+    property int countLine: 0                   // количество строк (найденых)
+    property int countUniqueWords: 0            // количество уникальных найденных слов
 
-    property bool on_fileDialog: false          //показ менеджера файлов
+    property bool on_fileDialog: false          // показ менеджера файлов
 
-    property color color10: "#ffffff"           //white
-    property color color11: "#000000"           //black
-    property color color12: "#bebdbd"           //gray
-    property color color13: "#f7f7f7"           //light_gray
+    property color color10: "#ffffff"           // white
+    property color color11: "#000000"           // black
+    property color color12: "#bebdbd"           // gray
+    property color color13: "#f7f7f7"           // light_gray
 
     id: mainWindow
     objectName: "mainWindow"
@@ -32,7 +33,7 @@ ApplicationWindow {
     Column {
 
         Header {
-            //Лейбл приложения
+            // Лейбл приложения
         }
 
         Rectangle {
@@ -43,7 +44,7 @@ ApplicationWindow {
         }
 
         PrimaryView {
-            //Основная часть экрана
+            // Основная часть экрана
             id: primaryView
         }
 
@@ -55,13 +56,13 @@ ApplicationWindow {
         }
 
         ButtonPanel {
-            //Панель кнопок
+            // Панель кнопок
             id: buttonPanel
         }
 
     }
 
-    //Первое состояние интерфейса. Начало работы
+    // Первое состояние интерфейса. Начало работы
     function pageFirst() {
         buttonPanel.buttonBack.visible = false
         buttonPanel.buttonProcess.enabled = false
@@ -84,10 +85,8 @@ ApplicationWindow {
         countUniqueWords = 0
     }
 
-    //Второе состояние интерефейса. Выбрали файл для обработки
+    // Второе состояние интерефейса. Выбрали файл для обработки
     function pageTwo() {
-        countLine = 0
-        countUniqueWords = 0
 
         buttonPanel.buttonBack.visible = false
         buttonPanel.buttonProcess.enabled = true
@@ -108,10 +107,8 @@ ApplicationWindow {
         primaryView.textProcessMessage.text = "Обработать файл?"                
     }
 
-    //Третье состояние интерфейса. Обработка файла и вывод результатов.
+    // Третье состояние интерфейса. Обработка файла и вывод результатов.
     function pageThree() {
-        countLine = 0
-        countUniqueWords = 0
 
         buttonPanel.buttonBack.visible = true
         buttonPanel.buttonProcess.enabled = false
@@ -132,7 +129,7 @@ ApplicationWindow {
         backend.on_readFile(filePath)
     }
 
-    //Четвертое состояние. завершение работы и вывод результатов.
+    // Четвертое состояние. завершение работы и вывод результатов.
     function pageFour() {
         primaryView.buttonViewFile.enabled = true
 
@@ -144,7 +141,7 @@ ApplicationWindow {
         primaryView.textProcessMessage.text = "Завершено!"
     }
 
-    //Ошибка чтения файла
+    // Ошибка чтения файла
     function errorOpenFile() {
         primaryView.textProcessMessage.text = "Ошибка чтения файла!"
     }

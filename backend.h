@@ -16,15 +16,15 @@ public:
     explicit Backend(QObject *parent = nullptr);
     void init();
 signals:
-    void readFile(QUrl filePath);       //Задать путь к файлу
-    void startReadFile(bool on_off);    //Пуск/стоп чтения файла
+    void readFile(QUrl filePath);       // Задать путь к файлу
+    void startReadFile(bool on_off);    // Пуск/стоп чтения файла
 public slots:    
-    void on_readFile(QUrl filePath);    //Путь к файлу
-    void on_startReadFile(bool on_off); //Пуск/стоп алгоритма чтения+обработки файла
-    void on_endProcessing();            //Слот завершения работы парсера
-    void on_countLine(int);             //Слот: колиичество найденных строк
-    void on_countUniqueWords(int);      //Слот: Количество кникальных слов
-    void on_errorOpenFile();            //Слот ошибка чтения файла
+    void on_readFile(QUrl filePath);    // Путь к файлу
+    void on_startReadFile(bool on_off); // Пуск/стоп алгоритма чтения+обработки файла
+    void on_endProcessing();            // Слот завершения работы парсера
+    void on_countLine(int);             // Слот: количество найденных строк
+    void on_countUniqueWords(int);      // Слот: количество уникальных слов
+    void on_errorOpenFile();            // Слот ошибка чтения файла
 private:
     Backend * backend;
     Parser * p_parser;

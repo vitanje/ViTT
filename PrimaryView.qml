@@ -2,20 +2,20 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import Qt.labs.platform 1.0
 
-//основной экран (Информация и ввод)
+// Основной экран (Информация и ввод)
 
 Item {
-    property alias textProcessMessage: textProcessMessage                   //Инфо работы
-    property alias textFieldFileUrl: textFieldFileUrl                       //Поле ввода
-    property alias buttonViewFile: buttonViewFile                           //Кнопка Обзор
+    property alias textProcessMessage: textProcessMessage                   // Инфо работы
+    property alias textFieldFileUrl: textFieldFileUrl                       // Поле ввода
+    property alias buttonViewFile: buttonViewFile                           // Кнопка Обзор
 
-    property alias textCountLine: textCountLine                             //Текст первой строки
-    property alias textCountLineResult: textCountLineResult                 //Текст результата кол-ва строк
+    property alias textCountLine: textCountLine                             // Текст первой строки
+    property alias textCountLineResult: textCountLineResult                 // Текст результата кол-ва строк
 
-    property alias textCountUniqueWords: textCountUniqueWords               //Текст второй строки
-    property alias textCountUniqueWordsResult: textCountUniqueWordsResult   //Текст результата кол-ва уник.слов
+    property alias textCountUniqueWords: textCountUniqueWords               // Текст второй строки
+    property alias textCountUniqueWordsResult: textCountUniqueWordsResult   // Текст результата кол-ва уник.слов
 
-    property alias fileDialog: fileDialog                                   //Менеджер файлов
+    property alias fileDialog: fileDialog                                   // Менеджер файлов (native)
 
     width: 500
     height: 130
@@ -29,7 +29,8 @@ Item {
             id: textProcessMessage            
             text: qsTr("Обработка")
             horizontalAlignment: Text.AlignHCenter            
-            font.pixelSize: 14            
+            font.pixelSize: 14
+            font.family: "Verdana"
 
             anchors {
                 top: parent.top
@@ -42,7 +43,8 @@ Item {
             id: textFieldFileUrl
             font.pixelSize: 12
             height: buttonViewFile.height
-            placeholderText : qsTr("Выберете файл...")
+            placeholderText : qsTr("Путь и имя файла...")
+            font.family: "Verdana"
             horizontalAlignment: Text.AlignLeft
             clip: true
 
@@ -114,6 +116,7 @@ Item {
                 id: textCountLine
                 text: qsTr("Количество найденных строк: ")
                 font.pixelSize: 12
+                font.family: "Verdana"
                 width: parent.width / 2.5
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -121,6 +124,7 @@ Item {
             Text {
                 id: textCountLineResult
                 text: countLine
+                font.family: "Verdana"
                 font.pixelSize: 12
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -141,6 +145,7 @@ Item {
                 id: textCountUniqueWords
                 text: qsTr("Количество уникальных слов: ")
                 font.pixelSize: 12
+                font.family: "Verdana"
                 width: parent.width / 2.5
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -148,6 +153,7 @@ Item {
             Text {
                 id: textCountUniqueWordsResult
                 text: countUniqueWords
+                font.family: "Verdana"
                 font.pixelSize: 12
                 anchors.verticalCenter: parent.verticalCenter
             }

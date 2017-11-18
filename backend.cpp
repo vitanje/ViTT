@@ -1,9 +1,9 @@
 #include "backend.h"
 
-#include <QtDebug>
+#include <QDebug>
 #include <QtCore/QThread>
 
-//основной класс
+// Основной класс
 
 Backend::Backend(QObject *parent) :
     QObject(parent), backend(this)
@@ -21,7 +21,7 @@ Backend::Backend(QObject *parent) :
     p_engine->rootContext()->setContextProperty("backend", this);
 }
 
-//Инициализация дополнительного потока и обработчика файлов (Parser).
+// Инициализация дополнительного потока и обработчика файлов (Parser).
 void Backend::init()
 {
     QThread * p_thread = new QThread();
@@ -42,37 +42,37 @@ void Backend::init()
     p_thread->start();
 }
 
-//Слот (из QML) для передачи парсеру пути файла
+// Слот (из QML) для передачи парсеру пути файла
 void Backend::on_readFile(QUrl filePath)
 {
     emit readFile(filePath);
 }
 
-//Слот (из QML) для запуска или остановки файлового парсера
+// Слот (из QML) для запуска или остановки файлового парсера
 void Backend::on_startReadFile(bool on_off)
 {    
     emit startReadFile(on_off);
 }
 
-//Слот (от Parser) завершение работы парсера
+// Слот (от Parser) завершение работы парсера
 void Backend::on_endProcessing()
 {    
     QMetaObject::invokeMethod(mainWindow, "pageFour");
 }
 
-//Слот (от Parser) обновляет переменную в QML (кол-во считанных строк)
+// Слот (от Parser) обновляет переменную в QML (кол-во считанных строк)
 void Backend::on_countLine(int countLine)
 {    
     mainWindow->setProperty("countLine", countLine);
 }
 
-//Слот (от Parser) обновляет переменную в QML (кол-во уникальных слов)
+// Слот (от Parser) обновляет переменную в QML (кол-во уникальных слов)
 void Backend::on_countUniqueWords(int countUniqueWords)
 {    
     mainWindow->setProperty("countUniqueWords", countUniqueWords);
 }
 
-//Слот ошибка чтения файла
+// Слот ошибка чтения файла
 void Backend::on_errorOpenFile()
 {
     QMetaObject::invokeMethod(mainWindow, "errorOpenFile");
