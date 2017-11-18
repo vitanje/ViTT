@@ -7,14 +7,12 @@
 
 
 // файловый парсер считывающий построчно текстовый файл
-
 Parser::Parser()
 {    
     bookWords =  new QSet<QString>; // Инициализация словаря слов
 }
 
 // Фильтр и наполнение словаря уникальными словами
-
 inline void Parser::parser(QString line)
 {    
     QString str = line.remove(QRegExp("[?!.;,:]"));
@@ -30,7 +28,6 @@ inline void Parser::parser(QString line)
 }
 
 // Слот (от Backend) установка пути файла для чтения
-
 void Parser::on_readFile(QUrl filePath)
 {    
     bookWords->clear();
@@ -59,7 +56,6 @@ void Parser::on_readFile(QUrl filePath)
 }
 
 // Слот флага остановки чтения файла
-
 void Parser::on_startReadFile(bool on_off)
 {        
     b_readFile = on_off; 

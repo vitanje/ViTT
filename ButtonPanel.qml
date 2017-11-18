@@ -58,7 +58,7 @@ Item {
             id: buttonProcess
             width: 100
             text: qsTr("Обработать")
-            highlighted: true            
+            highlighted: true
             font.pointSize: 10
             font.family: "Verdana"
 

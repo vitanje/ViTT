@@ -59,7 +59,6 @@ Item {
             }
 
             // Если юзер меняет путь к файлу вручную (поле ввода)
-
             onTextChanged: {
                 buttonPanel.buttonProcess.enabled = true
                 filePath  = textFieldFileUrl.text           // Указать этот путь из поля ввода для обработчика

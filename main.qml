@@ -44,9 +44,7 @@ ApplicationWindow {
         }
 
         PrimaryView {
-
             // Основная часть экрана
-
             id: primaryView
         }
 
@@ -58,16 +56,13 @@ ApplicationWindow {
         }
 
         ButtonPanel {
-
             // Панель кнопок
-
             id: buttonPanel
         }
 
     }
 
     // Первое состояние интерфейса. Начало работы
-
     function pageFirst() {
         buttonPanel.buttonBack.visible = false
         buttonPanel.buttonProcess.enabled = false
@@ -91,7 +86,6 @@ ApplicationWindow {
     }
 
     // Второе состояние интерефейса. Выбрали файл для обработки
-
     function pageTwo() {
 
         buttonPanel.buttonBack.visible = false
@@ -113,8 +107,7 @@ ApplicationWindow {
         primaryView.textProcessMessage.text = "Обработать файл?"                
     }
 
-    // Третье состояние интерфейса. Обработка файла и вывод результатов
-
+    // Третье состояние интерфейса. Обработка файла и вывод результатов.
     function pageThree() {
 
         buttonPanel.buttonBack.visible = true
@@ -136,8 +129,7 @@ ApplicationWindow {
         backend.on_readFile(filePath)
     }
 
-    // Четвертое состояние. завершение работы и вывод результатов
-
+    // Четвертое состояние. завершение работы и вывод результатов.
     function pageFour() {
         primaryView.buttonViewFile.enabled = true
 
@@ -150,7 +142,6 @@ ApplicationWindow {
     }
 
     // Ошибка чтения файла
-
     function errorOpenFile() {
         primaryView.textProcessMessage.text = "Ошибка чтения файла!"
     }
